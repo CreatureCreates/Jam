@@ -8,7 +8,7 @@ public class FPCamera : MonoBehaviour
     public float sensitivity;
     float rotateHorizontal;
     float rotateVertical;
-    
+
     // Update is called once per frame
     void LateUpdate()
     {
@@ -21,7 +21,6 @@ public class FPCamera : MonoBehaviour
 
         // rotate the camera in the vertical direct the mouse points
         rotateVertical = Input.GetAxis ("Mouse Y");
-
         transform.RotateAround (Vector3.zero, transform.right, -rotateVertical * sensitivity * Time.deltaTime);
     }
 }
