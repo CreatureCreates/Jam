@@ -8,6 +8,8 @@ public class GrapplingGun : MonoBehaviour
     private Vector3 grapplePoint;
     private float maxDistance = 100f;
     private SpringJoint joint;
+    private Rigidbody rb;
+    private float thrust = 0.4f;
 
     // public LayerMask grappleAbble; if we ever decide to add non-grappleable things
 
@@ -16,6 +18,7 @@ public class GrapplingGun : MonoBehaviour
     void Awake() 
     {
         lr = GetComponent<LineRenderer>();
+        rb = player.gameObject.GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -37,6 +40,11 @@ public class GrapplingGun : MonoBehaviour
     void LateUpdate()
     {
         DrawRope();
+    }
+    
+    void FixedUpdate()
+    {
+        PushToGrapplePoint();
     }
 
 
@@ -78,6 +86,14 @@ public class GrapplingGun : MonoBehaviour
 
         lr.SetPosition(0, shootingPoint.position);
         lr.SetPosition(1, grapplePoint);
+    }
+
+    void PushToGrapplePoint()
+    {
+        // return if the rope does not exist
+        if (!joint) return;
+
+        rb.AddForce((grapplePoint - player.position) * thrust, ForceMode.Impulse);
     }
 
     public bool IsGrappling()
