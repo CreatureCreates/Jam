@@ -6,6 +6,8 @@ public class PlayermovementController : MonoBehaviour
 {
     //Rigidbody of player
     public Rigidbody rb;
+    public int boostpadVelocity = 250;
+    public int jumppadVelocity = 500;
 
     void Start() 
     {
@@ -15,17 +17,17 @@ public class PlayermovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        print(rb.velocity);
     }
 
     void OnTriggerEnter(Collider collision)
     {
         switch(collision.gameObject.tag) {
             case "boostpad":
-                rb.AddForce(rb.velocity * 500);
+                rb.AddForce(rb.velocity * boostpadVelocity);
             break;
             case "jumppad":
-                rb.AddForce(new Vector3(0, 500, 0));
+                rb.AddForce(new Vector3(0, jumppadVelocity, 0));
             break;
         }
         print($"is colliding with {collision.gameObject.tag}");
