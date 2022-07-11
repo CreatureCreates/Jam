@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayermovementController : MonoBehaviour
@@ -15,7 +16,11 @@ public class PlayermovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // if the player gets too low, reload the scene
+        if (rb.position.y < -30)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     void OnTriggerEnter(Collider collision)

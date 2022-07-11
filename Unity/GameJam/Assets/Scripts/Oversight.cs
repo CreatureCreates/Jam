@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Oversight : MonoBehaviour
@@ -23,6 +24,10 @@ public class Oversight : MonoBehaviour
         {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        }
+        if (Input.GetKeyDown("r"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
