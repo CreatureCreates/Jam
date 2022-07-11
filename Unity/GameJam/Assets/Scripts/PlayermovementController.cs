@@ -26,9 +26,9 @@ public class PlayermovementController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider collision)
+    void OnTriggerEnter(Collider collider)
     {
-        switch(collision.gameObject.tag) {
+        switch(collider.gameObject.tag) {
             case "boostpad":
                 rb.AddForce(rb.velocity * boostpadVelocity);
             break;
@@ -36,9 +36,9 @@ public class PlayermovementController : MonoBehaviour
                 rb.AddForce(new Vector3(0, jumppadVelocity, 0));
             break;
         }
-        print($"is colliding with {collision.gameObject.tag}");
+        print($"is colliding with {collider.gameObject.tag}");
         /*
-        if(collision.gameObject.CompareTag("boostpad")) {
+        if(collider.gameObject.CompareTag("boostpad")) {
             rb.AddForce(rb.velocity * 500);
             print("is colliding with");
         }
