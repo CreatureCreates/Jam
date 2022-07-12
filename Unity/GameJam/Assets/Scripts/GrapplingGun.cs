@@ -10,6 +10,8 @@ public class GrapplingGun : MonoBehaviour
     private SpringJoint joint;
     private Rigidbody rb;
     private float thrust = 0.4f;
+    private AudioSource shotAudio;
+
 
     // public LayerMask grappleAbble; if we ever decide to add non-grappleable things
 
@@ -19,6 +21,7 @@ public class GrapplingGun : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
         rb = player.gameObject.GetComponent<Rigidbody>();
+        shotAudio = this.gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -69,6 +72,8 @@ public class GrapplingGun : MonoBehaviour
             joint.massScale = 4.5f;
 
             lr.positionCount = 2;
+
+            shotAudio.Play();
         }
     }
 

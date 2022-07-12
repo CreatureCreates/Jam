@@ -6,6 +6,8 @@ public class ScriptForBreakables : MonoBehaviour
 {
     public Rigidbody rb;
     private GameObject parent;
+    private AudioSource Audio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,8 @@ public class ScriptForBreakables : MonoBehaviour
         {
             parent.gameObject.transform.GetChild(i).gameObject.SetActive(false);
         }
+
+        Audio = parent.gameObject.GetComponent<AudioSource>();
         
         
     }
@@ -24,7 +28,7 @@ public class ScriptForBreakables : MonoBehaviour
         if(collider.gameObject.CompareTag("Player"))
         {
             rb.gameObject.SetActive(false);
-            print(this.gameObject.transform.childCount);
+            Audio.Play();
             for(int i = 1; i <= parent.gameObject.transform.childCount - 1; i++)
             {
                 parent.gameObject.transform.GetChild(i).gameObject.SetActive(true);
