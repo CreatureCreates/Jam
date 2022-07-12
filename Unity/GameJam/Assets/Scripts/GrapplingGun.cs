@@ -11,14 +11,16 @@ public class GrapplingGun : MonoBehaviour
     private Rigidbody rb;
     private float thrust = 0.4f;
     private AudioSource shotAudio;
+    private Transform player;
 
 
     // public LayerMask grappleAbble; if we ever decide to add non-grappleable things
 
-    public Transform shootingPoint, FPCamera, player;
+    public Transform shootingPoint, FPCamera;
 
     void Awake() 
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         lr = GetComponent<LineRenderer>();
         rb = player.gameObject.GetComponent<Rigidbody>();
         shotAudio = this.gameObject.GetComponent<AudioSource>();
@@ -97,7 +99,6 @@ public class GrapplingGun : MonoBehaviour
     {
         // return if the rope does not exist
         if (!joint) return;
-
         rb.AddForce((grapplePoint - player.position) * thrust, ForceMode.Impulse);
     }
 

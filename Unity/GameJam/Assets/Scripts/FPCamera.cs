@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class FPCamera : MonoBehaviour
 {
-    public GameObject Player;
+    private GameObject Player;
     public float sensitivity;
     float rotateHorizontal;
     float rotateVertical;
+
+    void Awake()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        transform.position = Player.transform.position;
+
+        Transform ShootingPoint = GameObject.FindGameObjectWithTag("ShootingPoint").transform;
+        print(ShootingPoint);
+        transform.LookAt(ShootingPoint, Vector3.up);
+    }
 
     // Update is called once per frame
     void LateUpdate()
