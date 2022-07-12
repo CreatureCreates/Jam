@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MirrorScript : MonoBehaviour
+public class ScriptForBreakables : MonoBehaviour
 {
     public Rigidbody rb;
     private GameObject parent;
@@ -16,12 +16,6 @@ public class MirrorScript : MonoBehaviour
             parent.gameObject.transform.GetChild(i).gameObject.SetActive(false);
         }
         
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 
