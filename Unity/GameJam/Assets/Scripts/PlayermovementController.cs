@@ -18,7 +18,7 @@ public class PlayermovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(rb.velocity);
+        //print(rb.velocity);
         // if the player gets too low, reload the scene
         if (rb.position.y < -30)
         {
@@ -36,7 +36,7 @@ public class PlayermovementController : MonoBehaviour
                 rb.AddForce(new Vector3(0, jumppadVelocity, 0));
             break;
         }
-        print($"is colliding with {collision.gameObject.tag}");
+        //print($"is colliding with {collision.gameObject.tag}");
         /*
         if(collision.gameObject.CompareTag("boostpad")) {
             rb.AddForce(rb.velocity * 500);
