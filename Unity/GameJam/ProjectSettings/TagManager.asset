@@ -6,6 +6,8 @@ TagManager:
   tags:
   - boostpad
   - jumppad
+  - ShootingPoint
+  - SliderVolume
   layers:
   - Default
   - TransparentFX
