@@ -20,7 +20,11 @@ public class PlayermovementController : MonoBehaviour
     {
         //print(rb.velocity);
         // if the player gets too low, reload the scene
-        if (rb.position.y < -50)
+        if (rb.position.y < -50 || 
+            rb.position.x < -200 || 
+            rb.position.x > 200 || 
+            rb.position.z < -200 ||
+            rb.position.z > 200)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
