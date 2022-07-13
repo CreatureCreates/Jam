@@ -6,7 +6,7 @@ using UnityEngine;
 public class FpsCounterScript : MonoBehaviour
 {
     //zet dit op 0 om de fps counter uit te zetten
-    public int TurnFpsCounterOn = 1;
+    public int TurnFpsCounterOn = 0;
     //dit displayt het gemiddelde fps over de laatste 30 instances
     public string AvgFrameRate;
     //Een queue om de laatst berekende fps op te slaan
