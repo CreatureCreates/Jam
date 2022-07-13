@@ -56,7 +56,7 @@ public class GrapplingGun : MonoBehaviour
     void StartGrapple()
     {
         RaycastHit hit;
-        if (Physics.Raycast(FPCamera.position, FPCamera.forward, out hit, maxDistance)) //, grappleAbble)) if we ever decide to add ungrappleabble things
+        if (Physics.Raycast(FPCamera.position, FPCamera.forward, out hit, maxDistance)) //, grappleAble)) if we ever decide to add ungrappleabble things
         {
             grapplePoint = hit.point;
             joint = player.gameObject.AddComponent<SpringJoint>();
