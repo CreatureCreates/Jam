@@ -23,7 +23,7 @@ public class FPCamera : MonoBehaviour
     void LateUpdate()
     {
         // put the camera at the coördinates of the player
-        transform.position = Player.transform.position;
+        transform.position = new Vector3 (Player.transform.position.x, Player.transform.position.y + 0.2f, Player.transform.position.z);
 
         // rotate the camera in the horizontal direction the mouse points
         rotateHorizontal = Input.GetAxis ("Mouse X");
