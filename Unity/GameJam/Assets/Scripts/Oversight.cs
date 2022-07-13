@@ -30,7 +30,7 @@ public class Oversight : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (Input.GetKeyDown("KeyCode.Escape"))
+        if (Input.GetKeyDown("m"))
         {
             SceneManager.LoadScene("Scenes/Menu");
         }
