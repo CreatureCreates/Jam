@@ -29,6 +29,10 @@ public class FinishScene : MonoBehaviour
 
             foreach (Transform child in truck)
             {
+                if(child.name == "CargoHolder") 
+                {
+                    child.GetComponent<MeshCollider>().convex = true;
+                }
                 MeshCollider mc = child.gameObject.AddComponent<MeshCollider>();
                 child.gameObject.AddComponent<Rigidbody>();
                 Rigidbody rb = child.gameObject.GetComponent<Rigidbody>();
@@ -36,6 +40,7 @@ public class FinishScene : MonoBehaviour
                 mc.isTrigger = true;
                 rb.isKinematic = false;
                 rb.useGravity = true;
+                rb.mass = -0f;
 
 
             }
