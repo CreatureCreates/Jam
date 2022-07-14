@@ -41,11 +41,20 @@ public class FinishScene : MonoBehaviour
                 rb.isKinematic = false;
                 rb.useGravity = true;
                 rb.mass = -0f;
-
-
             }
+            Rigidbody playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
+            playerRb.velocity = Vector3.zero;
+            playerRb.isKinematic = true;
+            playerRb.detectCollisions = false;
+
+            // stop rendering the gun
+            GameObject.FindGameObjectWithTag("gun").SetActive(false);
+
+
             //truck.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             //truck.gameObject.GetComponent<Rigidbody>().useGravity = true;
+
+
             // save win time
             int winTime = (int)(Time.timeSinceLevelLoad * 1000f);
             string stringTime = IntTimeToString(winTime);
@@ -60,23 +69,15 @@ public class FinishScene : MonoBehaviour
             string prevTimeString = PlayerPrefs.GetString(winTimeSceneName, "unfinished");
             float prevTimeFloat = PlayerPrefs.GetFloat(winTimeSceneNameFloat, defaultFloat);
 
-            print("defaultFloat");
-            print(defaultFloat);
-            print("winTime");
-            print(winTime);
-            print("prevTimeFloat");
-            print(prevTimeFloat);
-
             if (winTime < prevTimeFloat || prevTimeFloat == 0)
             {
                 PlayerPrefs.SetString(winTimeSceneName, stringTime);
                 PlayerPrefs.SetFloat(winTimeSceneNameFloat, winTime);
             }
-
-            print(winTimeSceneName);
-            print(prevTimeString);
-            print(PlayerPrefs.GetString(winTimeSceneName, "unfinished"));
         }
+
+        // wait and enter menu
+        StartCoroutine(waitTillMenu());
     }
 
     // stop all audio
@@ -109,4 +110,13 @@ public class FinishScene : MonoBehaviour
 
         return timeText;
     }
+
+    IEnumerator waitTillMenu()
+    {
+        //Wait for 4 seconds
+        yield return new WaitForSecondsRealtime(4);
+
+        SceneManager.LoadScene("Scenes/Menu");
+    }
+
 }
