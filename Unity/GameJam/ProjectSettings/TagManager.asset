@@ -8,6 +8,7 @@ TagManager:
   - jumppad
   - ShootingPoint
   - SliderVolume
+  - Timer
   layers:
   - Default
   - TransparentFX
