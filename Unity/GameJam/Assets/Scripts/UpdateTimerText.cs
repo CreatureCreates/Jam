@@ -7,7 +7,6 @@ using TMPro;
 public class UpdateTimerText : MonoBehaviour
 {
     public string counterText;
-
     private int minutes, seconds, milliseconds;
     public TMP_Text textBox;
     
@@ -33,7 +32,5 @@ public class UpdateTimerText : MonoBehaviour
         }
 
         textBox.text = counterText;
-
-
     }
 }
