@@ -128,5 +128,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7701752439585804902}
-  boostpadVelocity: 250
+  boostpadVelocity: 100
   jumppadVelocity: 500

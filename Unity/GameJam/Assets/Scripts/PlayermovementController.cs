@@ -7,7 +7,7 @@ public class PlayermovementController : MonoBehaviour
 {
     //Rigidbody of player
     public Rigidbody rb;
-    public int boostpadVelocity = 250;
+    public int boostpadVelocity = 100;
     public int jumppadVelocity = 500;
 
     void Start() 
@@ -19,7 +19,7 @@ public class PlayermovementController : MonoBehaviour
     void Update()
     {
         //print(rb.velocity);
-        // if the player gets too low, reload the scene
+        // if the player gets too low or too far away, the scene reloads
         if (rb.position.y < -50 || 
             rb.position.x < -200 || 
             rb.position.x > 200 || 
@@ -28,6 +28,7 @@ public class PlayermovementController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
     }
 
     void OnTriggerEnter(Collider collider)
@@ -40,12 +41,5 @@ public class PlayermovementController : MonoBehaviour
                 rb.AddForce(new Vector3(0, jumppadVelocity, 0));
             break;
         }
-        //print($"is colliding with {collision.gameObject.tag}");
-        /*
-        if(collider.gameObject.CompareTag("boostpad")) {
-            rb.AddForce(rb.velocity * 500);
-            print("is colliding with");
-        }
-        */
     }
 }
