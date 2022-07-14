@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 4278813515394898221}
   - component: {fileID: 1693916515285723287}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Distance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -536,3 +536,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9074e607abf9afb4fa7e321c3af12255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  bus: {fileID: 0}
