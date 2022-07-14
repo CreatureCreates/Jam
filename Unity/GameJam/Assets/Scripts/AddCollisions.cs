@@ -10,7 +10,6 @@ public class AddCollisions : MonoBehaviour
         // Iterate through all child objects of our Geometry object
         foreach (Transform childObject in transform)
         {
-            
             // get the mesh attached to each child object
             try
             {
@@ -19,9 +18,13 @@ public class AddCollisions : MonoBehaviour
                 // If we've found a mesh we can use it to add a collider
                 if (mesh != false)
                 {                      
+
                     // Add a new MeshCollider to the child object
                     MeshCollider meshCollider = childObject.gameObject.AddComponent<MeshCollider>();
-                    meshCollider.convex = true;
+                    if(childObject.name != "CargoHolder")
+                    {
+                        meshCollider.convex = true;
+                    }
                     // Finaly we set the Mesh in the MeshCollider
                     meshCollider.sharedMesh = mesh;
                 }
@@ -30,7 +33,6 @@ public class AddCollisions : MonoBehaviour
             {
                 // if no mesh collider was found, do nothing.
             }
-            
         }
     }
 }

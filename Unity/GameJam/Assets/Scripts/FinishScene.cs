@@ -30,6 +30,7 @@ public class FinishScene : MonoBehaviour
             foreach (Transform child in truck)
             {
                 MeshCollider mc = child.gameObject.AddComponent<MeshCollider>();
+                child.gameObject.AddComponent<Rigidbody>();
                 Rigidbody rb = child.gameObject.GetComponent<Rigidbody>();
                 mc.convex = true;
                 mc.isTrigger = true;
